@@ -23,8 +23,7 @@ function App() {
     try {
       const parsed = JSON.parse(input);
       
-      const API_URL = process.env.REACT_APP_API_URL || 'https://bfhl-backend-api-cr9z.onrender.com';
-      const response = await fetch(`${API_URL}/bfhl`, {
+      const response = await fetch('https://bfhl-backend-api-cr9z.onrender.com/bfhl', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
