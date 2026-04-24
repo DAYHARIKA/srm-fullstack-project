@@ -102,45 +102,9 @@ Frontend will run on `http://localhost:3000`
 
 ## 🌐 Deployment
 
-### Backend Deployment (Render)
 
-1. **Push code to GitHub**
-2. **Go to [render.com](https://render.com)**
-3. **Create new Web Service**
-4. **Connect your GitHub repository**
-5. **Settings:**
-   - **Root Directory**: `backend`
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`
-6. **Deploy**
+My backend URL: `(https://bfhl-backend-api-cr9z.onrender.com/)`
 
-Your backend URL will be: `https://your-app.onrender.com`
+My frontend URL : `(https://srm-fullstack-project.vercel.app/)`
 
-### Frontend Deployment (Vercel)
 
-1. **Go to [vercel.com](https://vercel.com)**
-2. **Import your repository**
-3. **Settings:**
-   - **Root Directory**: `frontend`
-   - **Framework Preset**: Create React App
-   - **Environment Variables**:
-     - `REACT_APP_API_URL` = `https://your-backend-url.onrender.com`
-4. **Deploy**
-
-Your frontend URL will be: `https://your-app.vercel.app`
-
-## 🔧 Fixing "Failed to fetch" Error
-
-The "Failed to fetch" error occurs when the frontend cannot connect to the backend. To fix:
-
-1. **Get your Render backend URL** from your Render dashboard
-2. **Add environment variable in Vercel:**
-   - Go to your Vercel project → Settings → Environment Variables
-   - Add: `REACT_APP_API_URL` = `https://your-backend-url.onrender.com`
-   - Redeploy the frontend
-
-3. **Alternative: Hardcode in App.js** (not recommended for production):
-   - Open `frontend/src/App.js`
-   - Line 26: Change `const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';`
-   - To: `const API_URL = 'https://your-backend-url.onrender.com';`
-   - Commit and push changes
