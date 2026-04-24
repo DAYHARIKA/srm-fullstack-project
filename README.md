@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SRM Full Stack Engineering Challenge - BFHL API
 
 A full-stack application that processes graph data to build tree hierarchies with cycle detection, built with Node.js, Express, and React.
@@ -246,3 +247,7 @@ SRM Full Stack Engineering Challenge Submission
 - `userId`: Your name_ddmmyyyy format
 - `emailId`: Your email
 - `collegeRollNumber`: Your roll number
+=======
+# srm-fullstack-project
+SRM Full Stack Engineering Challenge submission built with Node.js, Express.js, and React.js. Includes REST API (/bfhl) for hierarchy processing, cycle detection, duplicate handling, and responsive frontend UI. Hosted using Render and Vercel.
+>>>>>>> f12ffefc6ca49b790263335f027fb37537d9b04a
