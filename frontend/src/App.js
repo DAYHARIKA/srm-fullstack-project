@@ -23,7 +23,7 @@ function App() {
     try {
       const parsed = JSON.parse(input);
       
-      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const API_URL = process.env.REACT_APP_API_URL || 'https://bfhl-backend-api-cr9z.onrender.com';
       const response = await fetch(`${API_URL}/bfhl`, {
         method: 'POST',
         headers: {

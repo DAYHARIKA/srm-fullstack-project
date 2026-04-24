@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SRM Full Stack Engineering Challenge - BFHL API
 
 A full-stack application that processes graph data to build tree hierarchies with cycle detection, built with Node.js, Express, and React.
@@ -75,9 +74,9 @@ Frontend will run on `http://localhost:3000`
 **Response:**
 ```json
 {
-  "user_id": "john_doe_24042026",
-  "email_id": "john.doe@srmist.edu.in",
-  "college_roll_number": "RA2111003010001",
+  "user_id": "KunamDayHarika_09072005",
+  "email_id": "dayharika_kunam@srmap.edu.in",
+  "college_roll_number": "AP231100011607",
   "hierarchies": [
     {
       "root": "A",
@@ -101,36 +100,6 @@ Frontend will run on `http://localhost:3000`
 }
 ```
 
-## 🧪 Test Examples
-
-### Valid Input
-```json
-{
-  "data": ["A->B", "A->C", "B->D", "D->E", "F->G"]
-}
-```
-
-### Invalid Entries (will be filtered)
-```json
-{
-  "data": ["hello", "1->2", "AB->C", "A-B", "A->", "A->A", ""]
-}
-```
-
-### Duplicate Edges
-```json
-{
-  "data": ["A->B", "A->B", "A->B"]
-}
-```
-
-### Cycle Detection
-```json
-{
-  "data": ["A->B", "B->C", "C->A"]
-}
-```
-
 ## 🌐 Deployment
 
 ### Backend Deployment (Render)
@@ -143,111 +112,35 @@ Frontend will run on `http://localhost:3000`
    - **Root Directory**: `backend`
    - **Build Command**: `npm install`
    - **Start Command**: `node server.js`
-   - **Environment Variables**: 
-     - `PORT`: 8080 (or any available port)
 6. **Deploy**
 
 Your backend URL will be: `https://your-app.onrender.com`
 
 ### Frontend Deployment (Vercel)
 
-1. **Update API URL in frontend/src/App.js**
-   - Change `http://localhost:5000/bfhl` to your deployed backend URL
-   - Example: `https://your-app.onrender.com/bfhl`
-
-2. **Push changes to GitHub**
-
-3. **Go to [vercel.com](https://vercel.com)**
-4. **Import your repository**
-5. **Settings:**
+1. **Go to [vercel.com](https://vercel.com)**
+2. **Import your repository**
+3. **Settings:**
    - **Root Directory**: `frontend`
    - **Framework Preset**: Create React App
-6. **Deploy**
+   - **Environment Variables**:
+     - `REACT_APP_API_URL` = `https://your-backend-url.onrender.com`
+4. **Deploy**
 
 Your frontend URL will be: `https://your-app.vercel.app`
 
-### Environment Variables (Optional)
+## 🔧 Fixing "Failed to fetch" Error
 
-Create `.env` file in backend directory:
-```
-PORT=5000
-NODE_ENV=production
-```
+The "Failed to fetch" error occurs when the frontend cannot connect to the backend. To fix:
 
-## 📝 Features
+1. **Get your Render backend URL** from your Render dashboard
+2. **Add environment variable in Vercel:**
+   - Go to your Vercel project → Settings → Environment Variables
+   - Add: `REACT_APP_API_URL` = `https://your-backend-url.onrender.com`
+   - Redeploy the frontend
 
-### Backend Logic
-- ✅ Validates entries (format: X->Y where X,Y are uppercase letters A-Z)
-- ✅ Handles duplicate edges (stores once)
-- ✅ Builds multiple independent trees
-- ✅ Root detection (nodes never appearing as children)
-- ✅ Cycle detection
-- ✅ Depth calculation (longest root-to-leaf path)
-- ✅ Summary statistics
-- ✅ CORS enabled
-- ✅ Response under 3 seconds
-
-### Frontend Features
-- ✅ Beautiful modern UI with dark theme
-- ✅ Textarea input for JSON data
-- ✅ Sample example button
-- ✅ Loading spinner
-- ✅ Pretty result cards
-- ✅ Tree visualization
-- ✅ Error handling
-- ✅ Responsive design
-- ✅ Copy JSON button
-- ✅ Animations
-- ✅ Clean typography
-
-## 🔒 Security Notes
-
-- Update `user_id`, `email_id`, and `college_roll_number` in `backend/server.js` with your actual details
-- Never commit real credentials to GitHub
-- Use environment variables for sensitive data
-
-## 📊 Performance
-
-- API response time: < 3 seconds
-- Handles large datasets efficiently
-- Optimized tree building algorithm
-
-## 🐛 Troubleshooting
-
-### Backend not starting
-```bash
-# Check if port 5000 is in use
-# Change PORT in .env or use different port
-PORT=5001 npm start
-```
-
-### Frontend can't connect to backend
-- Ensure backend is running
-- Check CORS settings
-- Verify API URL in App.js
-
-### Build errors
-```bash
-# Clear node_modules and reinstall
-rm -rf node_modules package-lock.json
-npm install
-```
-
-## 📄 License
-
-This project is for educational purposes.
-
-## 👥 Author
-
-SRM Full Stack Engineering Challenge Submission
-
----
-
-**Note**: Update the user information in `backend/server.js` before deployment:
-- `userId`: Your name_ddmmyyyy format
-- `emailId`: Your email
-- `collegeRollNumber`: Your roll number
-=======
-# srm-fullstack-project
-SRM Full Stack Engineering Challenge submission built with Node.js, Express.js, and React.js. Includes REST API (/bfhl) for hierarchy processing, cycle detection, duplicate handling, and responsive frontend UI. Hosted using Render and Vercel.
->>>>>>> f12ffefc6ca49b790263335f027fb37537d9b04a
+3. **Alternative: Hardcode in App.js** (not recommended for production):
+   - Open `frontend/src/App.js`
+   - Line 26: Change `const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';`
+   - To: `const API_URL = 'https://your-backend-url.onrender.com';`
+   - Commit and push changes
